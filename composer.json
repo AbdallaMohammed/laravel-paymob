@@ -31,14 +31,6 @@
             "tests"
         ]
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Laravel\\PayMob\\Tests\\": "tests/"
-        },
-        "classmap": [
-            "tests"
-        ]
-    },
     "extra": {
         "laravel": {
             "providers": [
