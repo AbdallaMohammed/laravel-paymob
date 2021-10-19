@@ -1,0 +1,52 @@
+{
+    "name": "abdallahmohammed/laravel-paymob",
+    "description": "Pay online with Paymob payment gateway through Laravel",
+    "type": "library",
+    "keywords": [
+        "php",
+        "paymob",
+        "weaccept",
+        "gateway",
+        "online",
+        "payment",
+        "laravel"
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/http": "^6.0|^7.0|^8.0",
+        "illuminate/support": "^6.0|^7.0|^8.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AbdallahMohammed",
+            "email": "abdallah.r660@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Laravel\\PayMob\\": "src/"
+        },
+        "classmap": [
+            "tests"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Laravel\\PayMob\\Tests\\": "tests/"
+        },
+        "classmap": [
+            "tests"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ahmadabdallah\\Paymob\\PayMobServiceProvider"
+            ],
+            "aliases" : {
+                "Paymob" : "Ahmadabdallah\\Paymob\\Facades\\Paymob"
+            }
+        }
+    }
+}
