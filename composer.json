@@ -31,10 +31,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Ahmadabdallah\\Paymob\\PayMobServiceProvider"
+                "Laravel\\Paymob\\PayMobServiceProvider"
             ],
             "aliases" : {
-                "Paymob" : "Ahmadabdallah\\Paymob\\Facades\\Paymob"
+                "Paymob" : "Laravel\\Paymob\\Facades\\Paymob"
             }
         }
     }
