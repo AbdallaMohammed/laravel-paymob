@@ -27,15 +27,5 @@
         "psr-4": {
             "Laravel\\PayMob\\": "src/"
         }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Laravel\\Paymob\\PayMobServiceProvider"
-            ],
-            "aliases" : {
-                "Paymob" : "Laravel\\Paymob\\Facades\\Paymob"
-            }
-        }
     }
 }
