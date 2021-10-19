@@ -1,6 +1,6 @@
 <?php
 
-namespace  Ahmadabdallah\PayMob\Facades;
+namespace  Laravel\PayMob\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

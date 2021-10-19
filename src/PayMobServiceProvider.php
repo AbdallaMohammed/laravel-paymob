@@ -1,6 +1,6 @@
 <?php
 
-namespace Ahmadabdallah\PayMob;
+namespace Laravel\PayMob;
 
 use Illuminate\Support\ServiceProvider;
 
