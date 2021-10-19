@@ -9,4 +9,4 @@ Require via composer
 
 ```bash
 $ composer require abdallahmohammed/laravel-paymob
-``
+```
