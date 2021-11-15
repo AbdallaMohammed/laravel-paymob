@@ -125,4 +125,82 @@ class PayMob
         return json_decode($response->getBody()->getContents());
     }
 
+    /**
+     * Make payment for API (moblie clients).
+     *
+     * @param  string  $token
+     * @param  int  $card_number
+     * @param  string  $card_holdername
+     * @param  int  $card_expiry_mm
+     * @param  int  $card_expiry_yy
+     * @param  int  $card_cvn
+     * @param  int  $order_id
+     * @param  string  $firstname
+     * @param  string  $lastname
+     * @param  string  $email
+     * @param  string  $phone
+     * @return array
+     */
+    public function makePayment(
+        $authToken,
+        $paymentToken,
+        $card_number,
+        $card_holdername,
+        $card_expiry_mm,
+        $card_expiry_yy,
+        $card_cvn,
+        $order_id,
+        $firstname,
+        $lastname,
+        $email,
+        $phone
+    ) {
+        $json = [
+            'source' => [
+                'identifier'        => $card_number,
+                'sourceholder_name' => $card_holdername,
+                'subtype'           => 'CARD',
+                'expiry_month'      => $card_expiry_mm,
+                'expiry_year'       => $card_expiry_yy,
+                'cvn'               => $card_cvn
+            ],
+            'billing' => [
+                'first_name'   => $firstname,
+                'last_name'    => $lastname,
+                'email'        => $email,
+                'phone_number' => $phone,
+            ],
+            'payment_token' => $paymentToken,
+        ];
+
+        $response = $this->client->request(
+            'POST',
+            'https://accept.paymobsolutions.com/api/acceptance/payments/pay',
+            [
+                'json' => $json,
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $authToken,
+                ],
+            ]
+        );
+
+        return json_decode($response->getBody()->getContents());
+    }
+
+    /**
+     * Get PayMob order.
+     *
+     * @param  int  $orderId
+     * @return Response
+     */
+    public function getOrderDetails($orderId, $authToken)
+    {
+        $response = $this->client->request('GET', 'https://accept.paymobsolutions.com/api/ecommerce/orders/' . $orderId, [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $authToken,
+            ],
+        ]);
+
+        return json_decode($response->getBody()->getContents());
+    }
 }
